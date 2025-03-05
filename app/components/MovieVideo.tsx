@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
+
 import prisma from "../utils/db";
 import MovieButtons from "./MovieButtons";
 
 async function getData() {
-  const data = await prisma.movie.findFirst({
+  const [data] = await Promise.all([prisma.movie.findFirst({
     select: {
       title: true,
       overview: true,
@@ -15,7 +15,7 @@ async function getData() {
       age: true,
       youtubeString: true,
     },
-  });
+  })]);
   return data;
 }
 

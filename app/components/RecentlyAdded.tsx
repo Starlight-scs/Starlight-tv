@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
 
 async function getData(userId: string) {
-  const data = await prisma.movie.findMany({
+  const [data] = await Promise.all([prisma.movie.findMany({
     select: {
       id: true,
       overview: true,
@@ -25,7 +25,7 @@ async function getData(userId: string) {
       createdAt: "desc",
     },
     take: 4,
-  });
+  })]);
 
   return data;
 }
