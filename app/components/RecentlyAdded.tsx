@@ -60,7 +60,7 @@ export default async function RecentlyAdded() {
                 movieId={movie.id}
                 overview={movie.overview}
                 title={movie.title}
-                wachtListId={movie.WatchLists[0]?.id}
+                watchListId={movie.WatchLists[0]?.id}
                 youtubeUrl={movie.youtubeString}
                 watchList={movie.WatchLists.length > 0}
                 key={movie.id}

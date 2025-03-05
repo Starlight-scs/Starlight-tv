@@ -64,7 +64,7 @@ export default async function Watchlist() {
                   overview={movie.Movie?.overview as string}
                   time={movie.Movie?.duration as number}
                   title={movie.Movie?.title as string}
-                  wachtListId={movie.Movie?.WatchLists[0]?.id as string}
+                  watchListId={movie.Movie?.WatchLists[0]?.id as string}
                   watchList={
                     (movie.Movie?.WatchLists.length as number) > 0
                       ? true

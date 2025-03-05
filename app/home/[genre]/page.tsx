@@ -119,7 +119,7 @@ export default async function CategoryPage({
                 overview={movie.overview}
                 time={movie.duration}
                 title={movie.title}
-                wachtListId={movie.WatchLists[0]?.id}
+                watchListId={movie.WatchLists[0]?.id}
                 watchList={movie.WatchLists.length > 0 ? true : false}
                 year={movie.release}
                 youtubeUrl={movie.youtubeString}
