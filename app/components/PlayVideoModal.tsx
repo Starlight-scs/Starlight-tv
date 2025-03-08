@@ -19,7 +19,7 @@ interface iAppProps {
   overview: string;
   youtubeUrl: string;
   state: boolean;
-  changeState: any;
+  changeState: (state: boolean) => void;
   release: number;
   age: number;
   duration: number;

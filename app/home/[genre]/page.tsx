@@ -7,7 +7,7 @@ import Image from "next/image";
 async function getData(category: string, userId: string) {
   switch (category) {
     case "shows": {
-      const data = await prisma.movie.findMany({
+      const [data] = await Promise.all([prisma.movie.findMany({
         where: {
           category: "show",
         },
@@ -26,11 +26,11 @@ async function getData(category: string, userId: string) {
             },
           },
         },
-      });
+      })]);
       return data;
     }
     case "movies": {
-      const data = await prisma.movie.findMany({
+      const [data] = await Promise.all([prisma.movie.findMany({
         where: {
           category: "movie",
         },
@@ -49,12 +49,12 @@ async function getData(category: string, userId: string) {
             },
           },
         },
-      });
+      })]);
 
       return data;
     }
     case "recently": {
-      const data = await prisma.movie.findMany({
+      const [data] = await Promise.all([prisma.movie.findMany({
         where: {
           category: "recent",
         },
@@ -73,7 +73,7 @@ async function getData(category: string, userId: string) {
             },
           },
         },
-      });
+      })]);
 
       return data;
     }
